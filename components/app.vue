@@ -1,7 +1,7 @@
 <template>
   <main class="h-screen">
     <nav
-      class="flex bg-white border-b border-gray-200 inset-x-0 z-100 h-16 items-center p-6"
+      class="flex border-b border-gray-200 inset-x-0 z-100 h-16 items-center p-6"
     >
       <div class="flex items-center flex-shrink-0 mr-6">
         <span class="font-semibold text-xl tracking-tight">
@@ -10,7 +10,7 @@
       </div>
     </nav>
     <div class="flex">
-      <div class="bg-light border-right border-r w-64 p-4">
+      <div class="border-right border-r h-screen w-64 p-4">
         <draggable
           v-model="partials"
           :group="{ name: 'all', pull: 'clone', put: false }"
@@ -35,14 +35,21 @@
             :group="{ name: 'all' }"
             ghost-class="opacity-25"
             class="select-none"
+            :animation="200"
+            @start="drag = true"
+            @end="drag = false"
           >
-            <template v-for="element in elements">
+            <transition-group
+              type="transition"
+              :name="drag ? null : 'flip-list'"
+            >
               <div
+                v-for="element in elements"
                 v-html="compile(element)"
                 class="p-2 border-2 border-transparent hover:border-blue-300 rounded cursor-move"
                 :key="element.id"
               />
-            </template>
+            </transition-group>
           </draggable>
         </div>
         <div slot="Globals">
@@ -80,6 +87,7 @@ export default {
   components: { tabs, draggable },
   data() {
     return {
+      drag: false,
       globals: {},
       elements: [],
       partials
@@ -112,3 +120,9 @@ export default {
   }
 };
 </script>
+
+<style>
+.flip-list-move {
+  transition: transform 0.2s;
+}
+</style>
