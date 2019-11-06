@@ -116,6 +116,7 @@ export default {
       const template = this.partials.find(a => a.id == name).template;
       const content = compile(template)(this.globals);
 
+      // Maybe this instead: https://github.com/schwarzdavid/bootstrap-email/blob/master/lib/BootstrapEmail.js
       return new Inky().releaseTheKraken(cheerio.load(content));
     }
   }
