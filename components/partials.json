@@ -3,16 +3,12 @@
     "id": "one",
     "title": "One",
     "template": "<div style='color: pink'>this is template one {{ var1 }}</div>",
-    "variables": [
-      "var1"
-    ]
+    "variables": ["var1"]
   },
   {
     "id": "two",
     "title": "Two",
     "template": "<div style='color: blue'>this is template two {{ var2 }}</div>",
-    "variables": [
-      "var2"
-    ]
+    "variables": ["var2"]
   }
 ]

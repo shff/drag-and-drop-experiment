@@ -5,7 +5,8 @@
   "description": "Campaign editor for Braze",
   "scripts": {
     "build": "poi index.js",
-    "start": "poi --serve index.js"
+    "start": "poi --serve index.js",
+    "prettify": "prettier index.js components/* --write"
   },
   "dependencies": {
     "handlebars": "^4.5.1",

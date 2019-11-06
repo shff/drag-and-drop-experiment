@@ -1,15 +1,21 @@
 <template>
   <div>
     <ul class="flex border-b select-none">
-      <li v-for="(_,tab) in $slots" class="mr-1" :class="{ '-mb-px': selected == tab }">
+      <li
+        v-for="(_, tab) in $slots"
+        class="mr-1"
+        :class="{ '-mb-px': selected == tab }"
+      >
         <a
           :class="{
             'bg-white inline-block font-semibold py-2 px-4': true,
-            'border-l border-t border-r rounded-t text-blue-700': tab == selected,
-            'text-blue-500 hover:text-blue-800 font-semibold': tab != selected,
+            'border-l border-t border-r rounded-t text-blue-700':
+              tab == selected,
+            'text-blue-500 hover:text-blue-800 font-semibold': tab != selected
           }"
           href="#"
-          @click.prevent="selected = tab">
+          @click.prevent="selected = tab"
+        >
           {{ tab }}
         </a>
       </li>
@@ -21,11 +27,11 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        selected: Object.keys(this.$slots)[0],
-      };
-    },
-  };
+export default {
+  data() {
+    return {
+      selected: Object.keys(this.$slots)[0]
+    };
+  }
+};
 </script>

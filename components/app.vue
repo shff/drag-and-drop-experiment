@@ -97,7 +97,7 @@ export default {
     nextId() {
       const ids = this.elements.map(a => a.id);
       return Math.max(0, ...ids) + 1;
-    },
+    }
   },
   methods: {
     cloned({ id }) {
