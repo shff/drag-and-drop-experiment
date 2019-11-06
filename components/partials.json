@@ -2,7 +2,7 @@
   {
     "id": "one",
     "title": "One",
-    "template": "<div style='color: pink'>this is template one {{ var1 }}</div>",
+    "template": "<row><columns large='6'></columns><columns large='6'></columns></row>",
     "variables": ["var1"]
   },
   {

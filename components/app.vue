@@ -35,21 +35,15 @@
             :group="{ name: 'all' }"
             ghost-class="opacity-25"
             class="select-none"
-            :animation="200"
             @start="drag = true"
             @end="drag = false"
           >
-            <transition-group
-              type="transition"
-              :name="drag ? null : 'flip-list'"
-            >
-              <div
-                v-for="element in elements"
-                v-html="compile(element)"
-                class="p-2 border-2 border-transparent hover:border-blue-300 rounded cursor-move"
-                :key="element.id"
-              />
-            </transition-group>
+            <div
+              v-for="element in elements"
+              v-html="compile(element)"
+              class="p-2 border-2 border-transparent hover:border-blue-300 rounded cursor-move"
+              :key="element.id"
+            />
           </draggable>
         </div>
         <div slot="Globals">
@@ -67,7 +61,7 @@
         </div>
         <div slot="Result">
           <pre
-            class="m-2 p-4 bg-gray-200 border border-gray-400"
+            class="m-2 p-4 bg-gray-200 border border-gray-400 whitespace-normal"
             v-text="result"
           />
         </div>
@@ -79,6 +73,10 @@
 <script>
 import draggable from "vuedraggable";
 import { compile } from "handlebars";
+import juice from "juice";
+import declassify from "declassify";
+import cheerio from "cheerio";
+const Inky = require("inky/lib/inky");
 
 import tabs from "./tabs.vue";
 import partials from "./partials.json";
@@ -94,13 +92,16 @@ export default {
     };
   },
   computed: {
+    result() {
+      const preamble = "<style>.row { color: black }</style>";
+      const content = this.elements.map(e => this.compile(e)).join("\n");
+
+      return declassify.process(juice(preamble + content));
+    },
     variables() {
       const names = this.elements.map(a => a.name);
       const partials = this.partials.filter(a => names.includes(a.id));
       return partials.flatMap(a => a.variables);
-    },
-    result() {
-      return this.elements.map(e => this.compile(e)).join("\n");
     },
     nextId() {
       const ids = this.elements.map(a => a.id);
@@ -113,9 +114,9 @@ export default {
     },
     compile({ name }) {
       const template = this.partials.find(a => a.id == name).template;
-      const compiler = compile(template);
+      const content = compile(template)(this.globals);
 
-      return compiler(this.globals);
+      return new Inky().releaseTheKraken(cheerio.load(content));
     }
   }
 };
