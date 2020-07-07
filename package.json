@@ -15,7 +15,7 @@
     "juice": "^6.0.0",
     "tailwindcss": "^1.2.0",
     "vue": "^2.6.11",
-    "vuedraggable": "^2.0.3"
+    "vuedraggable": "^2.24.0"
   },
   "devDependencies": {
     "poi": "^12.7.5",
