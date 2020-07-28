@@ -12,7 +12,7 @@
     "declassify": "^2.1.0",
     "handlebars": "^4.7.6",
     "inky": "^1.4.1",
-    "juice": "^6.0.0",
+    "juice": "^7.0.0",
     "tailwindcss": "^1.6.0",
     "vue": "^2.6.11",
     "vuedraggable": "^2.24.0"
