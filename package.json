@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "declassify": "^2.1.0",
-    "handlebars": "^4.7.5",
+    "handlebars": "^4.7.6",
     "inky": "^1.4.1",
     "juice": "^6.0.0",
     "tailwindcss": "^1.5.2",
