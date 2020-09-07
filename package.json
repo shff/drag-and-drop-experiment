@@ -13,7 +13,7 @@
     "handlebars": "^4.7.6",
     "inky": "^1.4.2",
     "juice": "^7.0.0",
-    "tailwindcss": "^1.8.2",
+    "tailwindcss": "^1.8.4",
     "vue": "^2.6.12",
     "vuedraggable": "^2.24.1"
   },
