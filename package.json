@@ -1,12 +1,13 @@
 {
-  "license": "private",
+  "license": "MIT",
   "name": "campaign-editor",
   "version": "1.0.0",
   "description": "Campaign editor for Braze",
   "scripts": {
-    "build": "poi index.js",
+    "build": "poi index.js --public-url=.",
     "start": "poi --serve index.js",
-    "prettify": "prettier index.js components/* --write"
+    "prettify": "prettier index.js components/* --write",
+    "e2e": "cypress run -C false --config video=false,integrationFolder=components,supportFile=false,pluginsFile=false,testFiles=**/*.spec.js"
   },
   "dependencies": {
     "declassify": "^2.1.0",
@@ -18,6 +19,7 @@
     "vuedraggable": "^2.24.1"
   },
   "devDependencies": {
+    "cypress": "^5.3.0",
     "poi": "^12.10.2",
     "prettier": "^2.1.1",
     "vue-template-compiler": "^2.6.12"
