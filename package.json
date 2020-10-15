@@ -16,7 +16,7 @@
     "juice": "^7.0.0",
     "tailwindcss": "^1.8.9",
     "vue": "^2.6.12",
-    "vuedraggable": "^2.24.1"
+    "vuedraggable": "^2.24.2"
   },
   "devDependencies": {
     "cypress": "^5.3.0",
