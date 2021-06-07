@@ -21,7 +21,7 @@
   "devDependencies": {
     "cypress": "^7.3.0",
     "poi": "^12.10.3",
-    "prettier": "^2.3.0",
+    "prettier": "^2.3.1",
     "vue-template-compiler": "^2.6.12"
   }
 }
