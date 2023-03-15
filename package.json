@@ -19,7 +19,7 @@
     "vuedraggable": "^2.24.3"
   },
   "devDependencies": {
-    "cypress": "^9.7.0",
+    "cypress": "^12.8.0",
     "poi": "^12.10.3",
     "prettier": "^2.8.4",
     "vue-template-compiler": "^2.7.14"
